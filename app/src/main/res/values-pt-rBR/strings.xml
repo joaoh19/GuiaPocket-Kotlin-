@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_title">Guia Pocket - Bairro: Jardim Bandeirantes</string>
+
+
+    <string name="ligar">Ligar</string>
+    <string name="site">Site</string>
+    <string name="compartilhar">Compartilhar</string>
+    <string name="voltar">Voltar</string>
+    <string name="modo_escuro">Modo Escuro</string>
+    <string name="modo_claro">Modo Claro</string> <!-- ✅ ADICIONE ESTA LINHA -->
+    <string name="ingles">Inglês</string>
+    <string name="portugues">Português</string>
+
+
+
+    <string name="adgl_nome">ADGL Restaurante</string>
+    <string name="adgl_tipo">Restaurante</string>
+    <string name="adgl_descricao">Restaurante local com comida caseira e ambiente familiar.</string>
+    <string name="adgl_endereco">Av. Alberto Benassi, 2270 – Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="adgl_horario">Seg a Sáb: 11h às 15h</string>
+
+
+    <string name="amferreira_nome">A.M. Ferreira</string>
+    <string name="amferreira_tipo">Restaurante / Lanchonete</string>
+    <string name="amferreira_descricao">Tradicional restaurante de bairro, ótimo para refeições rápidas e lanches.</string>
+    <string name="amferreira_endereco">Av. Sylvio Mascia, 6090 – Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="amferreira_horario">Seg a Dom: 11h às 22h</string>
+
+
+    <string name="vivo_nome">Loja Vivo - Shopping Jaraguá</string>
+    <string name="vivo_tipo">Loja de Telefonia</string>
+    <string name="vivo_descricao">Loja oficial da Vivo, com atendimento presencial e suporte técnico.</string>
+    <string name="vivo_endereco">Av. Alberto Benassi, 2270 – Loja 128, Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="vivo_horario">Seg a Sáb: 10h às 22h, Dom: 12h às 20h</string>
+
+
+    <string name="passarinho_nome">Passarinho Hortifrúti</string>
+    <string name="passarinho_tipo">Hortifrúti / Mercado</string>
+    <string name="passarinho_descricao">Centro de distribuição e loja com frutas, verduras e legumes frescos.</string>
+    <string name="passarinho_endereco">Av. Alberto Benassi, 4320 – Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="passarinho_horario">Seg a Sáb: 7h às 19h, Dom: 7h às 13h</string>
+
+
+    <string name="aiko_nome">AIKO Motors</string>
+    <string name="aiko_tipo">Comércio de Veículos</string>
+    <string name="aiko_descricao">Concessionária local com venda e compra de veículos seminovos.</string>
+    <string name="aiko_endereco">Av. Sylvio Mascia, 6500 – Sala 02, Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="aiko_horario">Seg a Sáb: 8h às 18h</string>
+
+</resources>

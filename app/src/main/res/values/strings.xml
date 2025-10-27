@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_title">Pocket Guide - Neighborhood: Jardim Bandeirantes </string>
+
+
+    <string name="ligar">Call</string>
+    <string name="site">Website</string>
+    <string name="compartilhar">Share</string>
+    <string name="voltar">Back</string>
+    <string name="modo_escuro">Dark Mode</string>
+    <string name="modo_claro">Light Mode</string>
+    <string name="ingles">English</string>
+    <string name="portugues">Portuguese</string>
+
+
+
+
+    <string name="adgl_nome">ADGL Restaurant</string>
+    <string name="adgl_tipo">Restaurant</string>
+    <string name="adgl_descricao">Local restaurant serving homemade meals in a cozy atmosphere.</string>
+    <string name="adgl_endereco">2270 Alberto Benassi Ave – Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="adgl_horario">Mon to Sat: 11am – 3pm</string>
+
+
+    <string name="amferreira_nome">A.M. Ferreira</string>
+    <string name="amferreira_tipo">Restaurant / Snack Bar</string>
+    <string name="amferreira_descricao">Traditional neighborhood restaurant, great for quick meals and snacks.</string>
+    <string name="amferreira_endereco">6090 Sylvio Mascia Ave – Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="amferreira_horario">Mon to Sun: 11am – 10pm</string>
+
+
+    <string name="vivo_nome">Vivo Store - Jaraguá Shopping</string>
+    <string name="vivo_tipo">Mobile Store</string>
+    <string name="vivo_descricao">Official Vivo store offering customer service and technical support.</string>
+    <string name="vivo_endereco">2270 Alberto Benassi Ave – Store 128, Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="vivo_horario">Mon to Sat: 10am – 10pm, Sun: 12pm – 8pm</string>
+
+
+    <string name="passarinho_nome">Passarinho Hortifrúti</string>
+    <string name="passarinho_tipo">Grocery / Fresh Produce Market</string>
+    <string name="passarinho_descricao">Distribution center and store offering fresh fruits and vegetables.</string>
+    <string name="passarinho_endereco">4320 Alberto Benassi Ave – Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="passarinho_horario">Mon to Sat: 7am – 7pm, Sun: 7am – 1pm</string>
+
+
+    <string name="aiko_nome">AIKO Motors</string>
+    <string name="aiko_tipo">Vehicle Dealership</string>
+    <string name="aiko_descricao">Local dealership for buying and selling pre-owned vehicles.</string>
+    <string name="aiko_endereco">6500 Sylvio Mascia Ave – Suite 02, Jardim Bandeirantes, Araraquara-SP</string>
+    <string name="aiko_horario">Mon to Sat: 8am – 6pm</string>
+
+</resources>
