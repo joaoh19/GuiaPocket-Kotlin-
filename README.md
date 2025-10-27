@@ -36,13 +36,4 @@ Um aplicativo Android desenvolvido em Kotlin que serve como guia comercial do ba
 |-----------|---------|
 | <img src="portupt2.png" width="300"> | <img src="inglespt2.png" width="300"> |
 
-## 🏗️ Tecnologias Utilizadas
 
-- **Kotlin** - Linguagem de programação
-- **Android Jetpack**:
-  - ViewBinding
-  - AppCompat
-- **Material Design** - Componentes de UI
-- **SharedPreferences** - Armazenamento local de configurações
-
-## 📋 Estrutura do Projeto
