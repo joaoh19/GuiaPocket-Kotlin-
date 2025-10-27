@@ -5,35 +5,78 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.guiabairro.databinding.ActivityDetalhesBinding
 import com.example.guiabairro.models.Estabelecimento
-import android.widget.Toast
 import android.content.res.Configuration
 import java.util.Locale
-import android.content.SharedPreferences // ✅ IMPORT ADICIONADO
+import android.content.SharedPreferences
 
 class DetalhesActivity : AppCompatActivity() {
 
-    private var temaEscuroAtivo = false
-    private var idiomaInglesAtivo = false
     private lateinit var binding: ActivityDetalhesBinding
-    private lateinit var sharedPreferences: SharedPreferences 
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
 
         sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
-        carregarPreferencias()
+        aplicarConfiguracoesSalvas()
 
+        super.onCreate(savedInstanceState)
         binding = ActivityDetalhesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         configurarBotoes()
+        carregarDadosEstabelecimento()
+    }
 
+    private fun aplicarConfiguracoesSalvas() {
+
+        val idiomaInglesAtivo = sharedPreferences.getBoolean("idioma_ingles", false)
+        val temaEscuroAtivo = sharedPreferences.getBoolean("tema_escuro", false)
+
+
+        if (temaEscuroAtivo) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
+
+        val locale = if (idiomaInglesAtivo) Locale.ENGLISH else Locale("pt", "BR")
+        val resources = resources
+        val configuration = Configuration(resources.configuration)
+        configuration.setLocale(locale)
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+    }
+
+    private fun configurarBotoes() {
+        binding.btnVoltar.setOnClickListener {
+            finish()
+        }
+
+        binding.btnTema.setOnClickListener {
+            alternarTema()
+        }
+
+        binding.btnIdioma.setOnClickListener {
+            alternarIdioma()
+        }
+
+
+        atualizarTextosBotoes()
+    }
+
+    private fun atualizarTextosBotoes() {
+        val temaEscuroAtivo = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+        val idiomaInglesAtivo = sharedPreferences.getBoolean("idioma_ingles", false)
+
+        binding.btnTema.text = if (temaEscuroAtivo) getString(R.string.modo_claro) else getString(R.string.modo_escuro)
+        binding.btnIdioma.text = if (idiomaInglesAtivo) getString(R.string.portugues) else getString(R.string.ingles)
+    }
+
+    private fun carregarDadosEstabelecimento() {
         val id = intent.getIntExtra("ID", 0)
         val nome = intent.getStringExtra("NOME") ?: ""
         val tipo = intent.getStringExtra("TIPO") ?: ""
@@ -59,53 +102,66 @@ class DetalhesActivity : AppCompatActivity() {
         setupUI(estabelecimento)
     }
 
-    private fun carregarPreferencias() {
-
-        idiomaInglesAtivo = sharedPreferences.getBoolean("idioma_ingles", false)
-        temaEscuroAtivo = sharedPreferences.getBoolean("tema_escuro", false)
-
-
-        if (temaEscuroAtivo) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-
-        aplicarIdiomaSalvo()
-    }
-
-    private fun aplicarIdiomaSalvo() {
-        val locale = if (idiomaInglesAtivo) Locale.ENGLISH else Locale("pt", "BR")
-        val resources = resources
-        val configuration = Configuration(resources.configuration)
-        configuration.setLocale(locale)
-        resources.updateConfiguration(configuration, resources.displayMetrics)
-    }
-
-    private fun configurarBotoes() {
-        binding.btnVoltar.setOnClickListener {
-            finish()
-        }
-
-        binding.btnTema.setOnClickListener {
-            alternarTema()
-        }
-
-        binding.btnIdioma.setOnClickListener {
-            alternarIdioma()
-        }
-
-        // ✅ DEFINIR TEXTOS INICIAIS DOS BOTÕES
-        binding.btnTema.text = if (temaEscuroAtivo) getString(R.string.modo_claro) else getString(R.string.modo_escuro)
-        binding.btnIdioma.text = if (idiomaInglesAtivo) getString(R.string.portugues) else getString(R.string.ingles)
-    }
-
     private fun setupUI(estabelecimento: Estabelecimento) {
-        binding.tvNome.text = estabelecimento.nome
-        binding.tvTipo.text = estabelecimento.tipo
-        binding.tvDescricao.text = estabelecimento.descricao
-        binding.tvEndereco.text = estabelecimento.endereco
-        binding.tvHorario.text = estabelecimento.horarioFuncionamento
+
+        val idiomaInglesAtivo = sharedPreferences.getBoolean("idioma_ingles", false)
+
+        if (idiomaInglesAtivo) {
+
+            when (estabelecimento.nome) {
+                "Vivo Store - Jaraguá Shopping" -> {
+                    binding.tvNome.text = "Vivo Store - Jaraguá Shopping"
+                    binding.tvTipo.text = "Mobile Store"
+                    binding.tvDescricao.text = "Official Vivo store offering customer service and technical support."
+                    binding.tvEndereco.text = "2270 Alberto Benassi Ave – Store 128, Jardim Bandeirantes, Araraquara SP"
+                    binding.tvHorario.text = "Mon to Sat: 10am – 10pm, Sun: 12pm – 8pm"
+                }
+                "ADGL Restaurant" -> {
+                    binding.tvNome.text = "ADGL Restaurant"
+                    binding.tvTipo.text = "Restaurant"
+                    binding.tvDescricao.text = "Restaurant with varied dishes and cozy atmosphere."
+                    binding.tvEndereco.text = "Example Street, 123, Jardim Bandeirantes, Araraquara SP"
+                    binding.tvHorario.text = "Every day: 11am–11pm"
+                }
+                "A.M. Ferreira Restaurant / Stock Bar" -> {
+                    binding.tvNome.text = "A.M. Ferreira Restaurant / Stock Bar"
+                    binding.tvTipo.text = "Restaurant / Bar"
+                    binding.tvDescricao.text = "Traditional restaurant and bar with local cuisine."
+                    binding.tvEndereco.text = "Example Street, 456, Jardim Bandeirantes, Araraquara SP"
+                    binding.tvHorario.text = "Mon to Sat: 6pm–2am"
+                }
+                "Passarinho Horifruti Goevry / Freio Pachez Malveti" -> {
+                    binding.tvNome.text = "Passarinho Horifruti Goevry"
+                    binding.tvTipo.text = "Grocery Store"
+                    binding.tvDescricao.text = "Fresh fruits, vegetables and grocery products."
+                    binding.tvEndereco.text = "Example Street, 789, Jardim Bandeirantes, Araraquara SP"
+                    binding.tvHorario.text = "Mon to Sat: 7am–8pm, Sun: 7am–1pm"
+                }
+                "ANXO Motors Venios Decanado" -> {
+                    binding.tvNome.text = "ANXO Motors"
+                    binding.tvTipo.text = "Car Dealership"
+                    binding.tvDescricao.text = "Car sales and automotive services."
+                    binding.tvEndereco.text = "Example Street, 101, Jardim Bandeirantes, Araraquara SP"
+                    binding.tvHorario.text = "Mon to Fri: 8am–6pm, Sat: 8am–12pm"
+                }
+                else -> {
+
+                    binding.tvNome.text = estabelecimento.nome
+                    binding.tvTipo.text = estabelecimento.tipo
+                    binding.tvDescricao.text = estabelecimento.descricao
+                    binding.tvEndereco.text = estabelecimento.endereco
+                    binding.tvHorario.text = estabelecimento.horarioFuncionamento
+                }
+            }
+        } else {
+
+            binding.tvNome.text = estabelecimento.nome
+            binding.tvTipo.text = estabelecimento.tipo
+            binding.tvDescricao.text = estabelecimento.descricao
+            binding.tvEndereco.text = estabelecimento.endereco
+            binding.tvHorario.text = estabelecimento.horarioFuncionamento
+        }
+
         binding.ivEstabelecimento.setImageResource(estabelecimento.imagemResId)
 
         binding.btnLigar.setOnClickListener {
@@ -128,12 +184,12 @@ class DetalhesActivity : AppCompatActivity() {
 
         binding.btnCompartilhar.setOnClickListener {
             val shareText = """
-                ${estabelecimento.nome}
-                ${estabelecimento.descricao}
-                Telefone: ${estabelecimento.telefone}
-                Endereço: ${estabelecimento.endereco}
-                Horário: ${estabelecimento.horarioFuncionamento}
-            """.trimIndent()
+            ${binding.tvNome.text}
+            ${binding.tvDescricao.text}
+            Telefone: ${estabelecimento.telefone}
+            Endereço: ${binding.tvEndereco.text}
+            Horário: ${binding.tvHorario.text}
+        """.trimIndent()
 
             val intent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
@@ -144,44 +200,50 @@ class DetalhesActivity : AppCompatActivity() {
     }
 
     private fun alternarTema() {
-        temaEscuroAtivo = !temaEscuroAtivo
+        val temaEscuroAtivo = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+        val novoTema = !temaEscuroAtivo
 
 
-        sharedPreferences.edit().putBoolean("tema_escuro", temaEscuroAtivo).apply()
+        sharedPreferences.edit().putBoolean("tema_escuro", novoTema).apply()
 
-        if (temaEscuroAtivo) {
+        if (novoTema) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            binding.btnTema.text = getString(R.string.modo_claro)
             Toast.makeText(this, "Modo escuro ativado", Toast.LENGTH_SHORT).show()
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            binding.btnTema.text = getString(R.string.modo_escuro)
             Toast.makeText(this, "Modo claro ativado", Toast.LENGTH_SHORT).show()
         }
+
+
+        binding.btnTema.text = if (novoTema) getString(R.string.modo_claro) else getString(R.string.modo_escuro)
     }
 
     private fun alternarIdioma() {
-        idiomaInglesAtivo = !idiomaInglesAtivo
+        val idiomaInglesAtivo = sharedPreferences.getBoolean("idioma_ingles", false)
+        val novoIdioma = !idiomaInglesAtivo
 
 
-        sharedPreferences.edit().putBoolean("idioma_ingles", idiomaInglesAtivo).apply()
+        sharedPreferences.edit().putBoolean("idioma_ingles", novoIdioma).apply()
 
-        if (idiomaInglesAtivo) {
-            alterarIdiomaApp(Locale.ENGLISH)
-            binding.btnIdioma.text = getString(R.string.portugues)
+        if (novoIdioma) {
+            aplicarIdioma(Locale.ENGLISH)
             Toast.makeText(this, "Idioma alterado para Inglês", Toast.LENGTH_SHORT).show()
         } else {
-            alterarIdiomaApp(Locale("pt", "BR"))
-            binding.btnIdioma.text = getString(R.string.ingles)
+            aplicarIdioma(Locale("pt", "BR"))
             Toast.makeText(this, "Idioma alterado para Português", Toast.LENGTH_SHORT).show()
         }
+
+
+        binding.btnIdioma.text = if (novoIdioma) getString(R.string.portugues) else getString(R.string.ingles)
     }
 
-    private fun alterarIdiomaApp(locale: Locale) {
+    private fun aplicarIdioma(locale: Locale) {
         val resources = resources
         val configuration = Configuration(resources.configuration)
         configuration.setLocale(locale)
         resources.updateConfiguration(configuration, resources.displayMetrics)
+
+
         recreate()
     }
 }
