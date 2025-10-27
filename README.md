@@ -17,23 +17,23 @@ Um aplicativo Android desenvolvido em Kotlin que serve como guia comercial do ba
 #### Tela Principal
 | Modo Claro | Modo Escuro |
 |------------|-------------|
-| <img src="tela1Bran.png" width="300"> | <img src="tela1Preta.png" width="300"> |
+| ![Tela Principal - Modo Claro](tela1Bran.png) | ![Tela Principal - Modo Escuro](tela1Preta.png) |
 
 #### Tela de Detalhes
 | Modo Claro | Modo Escuro |
 |------------|-------------|
-| <img src="Tela2Bran.png" width="300"> | <img src="tela2preta.png" width="300"> |
+| ![Detalhes - Modo Claro](Tela2Bran.png) | ![Detalhes - Modo Escuro](tela2preta.png) |
 
 ### Suporte a Idiomas
 
 #### Tela Principal
 | Português | Inglês |
 |-----------|---------|
-| <img src="portupt1.png" width="300"> | <img src="ingles.png" width="300"> |
+| ![Português - Tela Principal](portupt1.png) | ![Inglês - Tela Principal](ingles.png) |
 
 #### Tela de Detalhes
 | Português | Inglês |
 |-----------|---------|
-| <img src="portupt2.png" width="300"> | <img src="inglespt2.png" width="300"> |
+| ![Português - Detalhes](portupt2.png) | ![Inglês - Detalhes](inglespt2.png) |
 
 
