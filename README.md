@@ -63,6 +63,8 @@ Navegação entre Activities usando Intents
 
 Persistência de dados e recuperação após fechar o app
 
+Link do vídeo: https://youtu.be/c1oA5rdxsKM
+
 🚀 Como Executar
 Clone o repositório
 
