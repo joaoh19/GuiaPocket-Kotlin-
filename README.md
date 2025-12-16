@@ -46,4 +46,49 @@ Um aplicativo Android desenvolvido em Kotlin que serve como guia comercial do ba
 - **Kotlin** - Linguagem de programação
 
 
+🎥 Demonstração em Vídeo
+Vídeo Explicativo da Implementação
+[Inserir link para o vídeo explicativo aqui]
+
+📹 Conteúdo do Vídeo:
+
+Explicação da arquitetura Room Database e entidades
+
+Demonstração do RecyclerView com Adapter e ViewHolder
+
+Funcionamento dos Intents nativos para ações diretas
+
+Implementação do ActivityResultLauncher para seleção de imagens
+
+Sistema de filtro em tempo real com LiveData/Flow
+
+Navegação entre Activities usando Intents
+
+Persistência de dados e recuperação após fechar o app
+
+🚀 Como Executar
+Clone o repositório
+
+Abra no Android Studio (versão recomendada: Electric Eel ou superior)
+
+Sincronize o projeto com Gradle
+
+Execute em um emulador (API 24 ou superior) ou dispositivo físico
+
+Pré-requisitos
+Android Studio 2022.3.1 ou superior
+
+SDK Android API 24+
+
+Dispositivo/emulador com Android 7.0+
+
+📄 Licença
+Este projeto foi desenvolvido para fins educacionais como parte da disciplina de Dispositivos Móveis 1, demonstrando a evolução de um aplicativo Android com foco em performance, persistência de dados e funcionalidades de cadastro.
+
+Desenvolvido por [João Henrique Correa Reis]
+Disciplina: Dispositivos Móveis 1
+Instituição: [IFSP - Instituto Federal de São Paulo (Araraquara)]
+Versão: 2.0 - Com persistência e RecyclerView
+
+
 
