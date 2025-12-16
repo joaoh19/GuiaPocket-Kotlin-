@@ -47,7 +47,7 @@ Um aplicativo Android desenvolvido em Kotlin que serve como guia comercial do ba
 
 
 
-MUDANÇAS FEITAS 
+2.0 MUDANÇAS FEITAS 
 
 arquitetura Room Database e entidades
 
