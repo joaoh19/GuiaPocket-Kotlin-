@@ -46,13 +46,10 @@ Um aplicativo Android desenvolvido em Kotlin que serve como guia comercial do ba
 - **Kotlin** - Linguagem de programação
 
 
-🎥 Demonstração em Vídeo
-Vídeo Explicativo da Implementação
-[Inserir link para o vídeo explicativo aqui]
 
-📹 Conteúdo do Vídeo:
+MUDANÇAS FEITAS 
 
-Explicação da arquitetura Room Database e entidades
+arquitetura Room Database e entidades
 
 Demonstração do RecyclerView com Adapter e ViewHolder
 
