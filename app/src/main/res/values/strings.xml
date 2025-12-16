@@ -48,4 +48,24 @@
     <string name="aiko_endereco">6500 Sylvio Mascia Ave – Suite 02, Jardim Bandeirantes, Araraquara-SP</string>
     <string name="aiko_horario">Mon to Sat: 8am – 6pm</string>
 
+
+
+        <!-- Cadastro Activity -->
+        <string name="select_image">Selecionar Imagem</string>
+        <string name="save">Salvar</string>
+        <string name="cancel">Cancelar</string>
+        <string name="save_success">Estabelecimento salvo com sucesso!</string>
+        <string name="save_error">Erro ao salvar estabelecimento</string>
+        <string name="field_required">Este campo é obrigatório</string>
+
+        <!-- Placeholders -->
+        <string name="hint_name">Nome do estabelecimento</string>
+        <string name="hint_type">Tipo (ex: Restaurante, Mercado)</string>
+        <string name="hint_description">Descrição</string>
+        <string name="hint_phone">Telefone</string>
+        <string name="hint_address">Endereço</string>
+        <string name="hint_website">Site (opcional)</string>
+        <string name="hint_schedule">Horário de funcionamento</string>
+
+
 </resources>
